@@ -11,7 +11,7 @@ steps:
     touch ${failure_file}
 
     # Loop through the builders, and build independently.
-    for d in */; do
+    for d in {helm,jsonet,hub}/; do
       echo "Building $d ... "
       (
         gcloud container builds submit $d --config=${d}cloudbuild.yaml > /dev/null 2>&1
